@@ -1,5 +1,6 @@
 
-FROM ubuntu:20.04
+#FROM ubuntu:20.04
+FROM quay.io/xm0uray/keyob_v2_clever_v1
 RUN apt-get update
 # Custom cache invalidation !
 ARG CACHEBUST=1
@@ -42,9 +43,9 @@ ADD ./addon/ $INST_SCRIPTS/
 RUN find $INST_SCRIPTS -name '*.sh' -exec chmod a+x {} +
 ################## Envrionment config ##########################################
 WORKDIR $HOME
-RUN $INST_SCRIPTS/package.sh
-RUN $INST_SCRIPTS/package_2.sh
-RUN $INST_SCRIPTS/package_3.sh
+#RUN $INST_SCRIPTS/package.sh
+#RUN $INST_SCRIPTS/package_2.sh
+#RUN $INST_SCRIPTS/package_3.sh
 ADD ./etc/ /etc/
 #######################  SSH ###########################################
 RUN mkdir -p ~/.ssh
@@ -56,7 +57,7 @@ RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test
 
 RUN  echo 'test:test' | chpasswd
 
-RUN service ssh start
+#RUN service ssh start
 
 ############################ ADD ROOT PASSWORD ###########################
 RUN ssh-keygen -q -t rsa -N '' -f /id_rsa
