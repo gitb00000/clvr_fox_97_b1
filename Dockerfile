@@ -116,6 +116,6 @@ RUN echo "export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\0
 #CMD ["python3", " --version"]
 #CMD ["--wait"]
 
-#ENTRYPOINT [ "/usr/bin/tini", "--", "/dockerstartup/startup.sh" ]
-ENTRYPOINT ["/dockerstartup/startup.sh"]
+ENTRYPOINT [ "/usr/bin/tini", "--", "/dockerstartup/startup.sh" ]
+#ENTRYPOINT ["/dockerstartup/startup.sh"]
 CMD ["--wait"]
