@@ -22,7 +22,7 @@ geometry=1360x768
 EOF
 
 /usr/share/novnc/utils/novnc_proxy --vnc 0.0.0.0:5901 --listen 8080 --cert /etc/ssl/self.pem
-sudo vncserver
+#sudo vncserver
 sleep 8
 sudo vncserver -kill :1
 mv /root/.vnc/xstartup /root/.vnc/xstartup.bak
