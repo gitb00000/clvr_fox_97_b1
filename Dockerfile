@@ -52,9 +52,9 @@ RUN rm /etc/ssh/sshd_config
 RUN cp $INST_SCRIPTS/sshd_config /etc/ssh/
 ###########################################################################
 
-RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
+  #RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
 
-RUN  echo 'test:test' | chpasswd
+#RUN  echo 'test:test' | chpasswd
 
 #RUN service ssh start
 
@@ -94,10 +94,10 @@ RUN /headless/install/tun_setup.sh
 EXPOSE $VNC_PORT $NO_VNC_PORT $SSH_PORT $SUPER_VISOR__PORT $NO_VNC_PORT_A
 
 
-RUN addgroup headless
-RUN useradd -m -s /bin/bash -g root headless
-RUN echo "headless:1" | /usr/sbin/chpasswd
-RUN echo "headless    ALL=(ALL) ALL" >> /etc/sudoers
+#RUN addgroup headless
+#RUN useradd -m -s /bin/bash -g root headless
+#RUN echo "headless:1" | /usr/sbin/chpasswd
+#RUN echo "headless    ALL=(ALL) ALL" >> /etc/sudoers
 RUN echo "export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /root/.bashrc
 #RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
 #RUN echo "nameserver 8.8.4.4" >> /etc/resolv.conf
