@@ -48,6 +48,6 @@ main() {
     done
 }
 #### start ssh service 
-service ssh restart
-usr/sbin/sshd -D &
+#service ssh restart
+#usr/sbin/sshd -D &
 main $@
