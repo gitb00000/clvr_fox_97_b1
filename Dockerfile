@@ -6,7 +6,7 @@ ENV DISPLAY=:1 \
     NGROK_TOKENS=test\
     google_main=test\
     VNC_PORT=5901 \
-    NO_VNC_PORT=6901 \
+    NO_VNC_PORT=8080 \
     NO_VNC_PORT_A=6080 \
     SSH_PORT=22 \
     SUPER_VISOR__PORT=9001 \
@@ -98,8 +98,8 @@ RUN useradd -m -s /bin/bash -g root headless
 RUN echo "headless:1" | /usr/sbin/chpasswd
 RUN echo "headless    ALL=(ALL) ALL" >> /etc/sudoers
 RUN echo "export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /root/.bashrc
-RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
-RUN echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+#RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
+#RUN echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 #RUN echo - "ControlPort 9051\nHashedControlPassword 16:A72E5A7AE45381ED60125365E2AA85E09B56ACAEE6B6536D8DF63A2B01\nCookieAuthentication 1\nRunAsDaemon 1" >> /etc/tor/torrc
 
 ENTRYPOINT [ "/usr/bin/tini", "--", "/dockerstartup/startup.sh" ]
