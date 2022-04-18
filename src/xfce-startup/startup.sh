@@ -1,5 +1,6 @@
 
 #!/bin/bash
+echo "----------------------------------   startup.sh   ---------------------------------------------" 
 echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 
 export USER="root"
