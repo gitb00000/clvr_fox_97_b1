@@ -61,7 +61,7 @@ ADD ./etc/ /etc/
 ############################ ADD ROOT PASSWORD ###########################
 #RUN ssh-keygen -q -t rsa -N '' -f /id_rsa
 
-RUN echo "root:1" | /usr/sbin/chpasswd
+#RUN echo "root:1" | /usr/sbin/chpasswd
 
 
 #########################################################################
@@ -83,15 +83,15 @@ RUN echo  \
 "</html>" \
 > "${NO_VNC_HOME}"/index.html
 #################################################################################
-COPY ./src/xfce-startup "${STARTUPDIR}"/
-COPY ./xfce/src/home/config /root/.config/
-COPY ./xfce/src/home/Desktop /root/Desktop/
-COPY ./xfce/src/home/readme*.md "${HOME}"/
+#COPY ./src/xfce-startup "${STARTUPDIR}"/
+#COPY ./xfce/src/home/config /root/.config/
+#COPY ./xfce/src/home/Desktop /root/Desktop/
+#COPY ./xfce/src/home/readme*.md "${HOME}"/
 RUN chmod 755 -R "${STARTUPDIR}" \
     && "${STARTUPDIR}"/set_user_permissions.sh "${STARTUPDIR}" "${HOME}"
-RUN /headless/install/tun_setup.sh
+#RUN /headless/install/tun_setup.sh
 #####################################
-EXPOSE $VNC_PORT $NO_VNC_PORT $SSH_PORT $SUPER_VISOR__PORT $NO_VNC_PORT_A
+#EXPOSE $VNC_PORT $NO_VNC_PORT $SSH_PORT $SUPER_VISOR__PORT $NO_VNC_PORT_A
 
 
 #RUN addgroup headless
@@ -103,7 +103,7 @@ RUN echo "export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\0
 #RUN echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 #RUN echo - "ControlPort 9051\nHashedControlPassword 16:A72E5A7AE45381ED60125365E2AA85E09B56ACAEE6B6536D8DF63A2B01\nCookieAuthentication 1\nRunAsDaemon 1" >> /etc/tor/torrc
 
-ENTRYPOINT [ "/usr/bin/tini", "--", "/dockerstartup/startup.sh" ]
+
 
 #CMD ["/bin/bash", "/dockerstartup/startup.sh"]
 
@@ -116,3 +116,6 @@ ENTRYPOINT [ "/usr/bin/tini", "--", "/dockerstartup/startup.sh" ]
 #CMD ["python3", " --version"]
 #CMD ["--wait"]
 
+#ENTRYPOINT [ "/usr/bin/tini", "--", "/dockerstartup/startup.sh" ]
+ENTRYPOINT ["/dockerstartup/startup.sh"]
+CMD ["--wait"]
