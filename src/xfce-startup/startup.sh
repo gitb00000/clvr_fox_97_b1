@@ -11,9 +11,8 @@ mkdir -p /root/.vnc/
 echo $PASSWORD | vncpasswd -f > /root/.vnc/passwd
 chmod 600 /root/.vnc/passwd
 ### create VNC configuration file
-echo "
-
-" > /root/.vnc/config
+echo "----------------------------------  create VNC configuration file  ---------------------------------------------" 
+echo "  " > /root/.vnc/config
 
 
 cat <<EOF > /root/.vnc/config
@@ -21,6 +20,7 @@ rfbport=5901
 depth=24
 geometry=1360x768
 EOF
+echo "----------------------------------   START  * novnc_proxy * ---------------------------------------------" 
 
 /usr/share/novnc/utils/novnc_proxy --vnc 0.0.0.0:5901 --listen 8080 --cert /etc/ssl/self.pem
 #sudo vncserver
