@@ -47,9 +47,9 @@ WORKDIR $HOME
 #RUN $INST_SCRIPTS/package_3.sh
 ADD ./etc/ /etc/
 #######################  SSH ###########################################
-RUN mkdir -p ~/.ssh
-RUN rm /etc/ssh/sshd_config
-RUN cp $INST_SCRIPTS/sshd_config /etc/ssh/
+#RUN mkdir -p ~/.ssh
+#RUN rm /etc/ssh/sshd_config
+#RUN cp $INST_SCRIPTS/sshd_config /etc/ssh/
 ###########################################################################
 
   #RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test 
@@ -59,7 +59,7 @@ RUN cp $INST_SCRIPTS/sshd_config /etc/ssh/
 #RUN service ssh start
 
 ############################ ADD ROOT PASSWORD ###########################
-RUN ssh-keygen -q -t rsa -N '' -f /id_rsa
+#RUN ssh-keygen -q -t rsa -N '' -f /id_rsa
 
 RUN echo "root:1" | /usr/sbin/chpasswd
 
