@@ -4,7 +4,7 @@ echo $(hostname -I | cut -d\  -f1) $(hostname) | sudo tee -a /etc/hosts
 
 export USER="root"
 export PASSWORD="123123123"
-echo "0000000000000000000000000000000000000&&&&&&&&01111111111111111111111111111111111111"
+echo "VNC PASSWORD"
 #touch /root/.Xauthority
 mkdir -p /root/.vnc/
 echo $PASSWORD | vncpasswd -f > /root/.vnc/passwd
