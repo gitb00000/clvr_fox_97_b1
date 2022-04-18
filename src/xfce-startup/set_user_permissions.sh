@@ -1,6 +1,6 @@
 #!/bin/bash
 ### every exit != 0 fails the script
-#set -e     # do not use
+#set -e     # do not use f
 #set -u     # do not use
 
 main() {
