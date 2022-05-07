@@ -105,7 +105,7 @@ RUN echo "export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\0
 
 
 
-#CMD ["/bin/bash", "/dockerstartup/startup.sh"]
+#CMD ["/bin/bash", "/dockerstartup/startup.sh"] what
 
 #RUN python --version
 #RUN python3.9 --version
