@@ -22,5 +22,5 @@ do
 	dbus-uuidgen > /var/lib/dbus/machine-id
 	cd /headless/SDA_ALL/main_oct0pus/
 	# timeout 5m python3 48_ads.py
-	python3 google_let.py
+	#python3 google_let.py
 done
